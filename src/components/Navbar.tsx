@@ -29,7 +29,7 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="flex items-center text-lg font-bold text-slate-900 tracking-tight"
+          className="text-lg font-bold leading-none text-slate-900 tracking-tight"
         >
           Yousaf<span className="text-indigo-600">.</span>
         </Link>
