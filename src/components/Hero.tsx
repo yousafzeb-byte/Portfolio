@@ -43,7 +43,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <h2 className="animate-fade-up-delay-1 text-2xl sm:text-3xl font-semibold text-slate-500 mb-6 h-10 flex items-center">
+          <h2 className="animate-fade-up-delay-1 text-2xl sm:text-3xl font-semibold text-slate-500 mb-6 min-h-[2.5rem] sm:h-10 flex items-start sm:items-center">
             <span>{displayText}</span>
             <span className="animate-blink ml-0.5 inline-block w-[2px] h-7 bg-indigo-500 rounded-sm" />
           </h2>
