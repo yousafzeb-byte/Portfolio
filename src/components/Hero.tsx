@@ -55,15 +55,6 @@ export default function Hero() {
             insight with hands-on engineering execution.
           </p>
 
-          <div className="animate-fade-up-delay-2 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-lg shadow-indigo-200"
-            >
-              View Projects
-            </a>
-          </div>
-
           <div className="animate-fade-up-delay-3 mt-16 flex flex-wrap gap-10 sm:gap-16">
             {[
               { value: "5+", label: "Projects Shipped" },
