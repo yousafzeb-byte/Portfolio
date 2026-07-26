@@ -43,9 +43,9 @@ export default function Hero() {
             </span>
           </h1>
 
-          <h2 className="animate-fade-up-delay-1 text-2xl sm:text-3xl font-semibold text-slate-500 mb-6 min-h-[2.5rem] sm:h-10 flex items-start sm:items-center">
-            <span>{displayText}</span>
-            <span className="animate-blink ml-0.5 inline-block w-[2px] h-7 bg-indigo-500 rounded-sm" />
+          <h2 className="animate-fade-up-delay-1 text-xl sm:text-3xl font-semibold text-slate-500 mb-6 h-8 sm:h-10 flex items-center">
+            <span className="whitespace-nowrap">{displayText}</span>
+            <span className="animate-blink ml-0.5 inline-block w-[2px] h-5 sm:h-7 bg-indigo-500 rounded-sm flex-shrink-0" />
           </h2>
 
           <p className="animate-fade-up-delay-2 text-lg text-slate-500 leading-relaxed mb-10 max-w-2xl">

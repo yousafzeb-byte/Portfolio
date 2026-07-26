@@ -10,9 +10,8 @@ export default function Contact() {
             Let&apos;s Work Together
           </h2>
           <p className="text-slate-500 mb-10 leading-relaxed">
-            I&apos;m currently open to full-time roles.
-            Whether you have a position in mind or just want to say hello — my
-            inbox is open.
+            I&apos;m currently open to full-time roles. Whether you have a
+            position in mind or just want to say hello — my inbox is open.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
