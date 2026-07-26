@@ -16,7 +16,15 @@ export default function RevealObserver() {
     );
 
     const els = document.querySelectorAll(".reveal");
-    els.forEach((el) => observer.observe(el));
+    els.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      // Already in or above viewport (e.g. after back navigation) — reveal immediately
+      if (rect.top < window.innerHeight) {
+        el.classList.add("visible");
+      } else {
+        observer.observe(el);
+      }
+    });
 
     return () => observer.disconnect();
   }, []);
