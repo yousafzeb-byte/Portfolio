@@ -32,7 +32,7 @@ export default function Hero() {
           <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-indigo-100 shadow-sm mb-8">
             <span className="pulse-dot w-2 h-2 rounded-full bg-green-500 block" />
             <span className="text-indigo-600 font-semibold text-xs tracking-widest uppercase">
-              Available for opportunities
+              Open to opportunities
             </span>
           </div>
 
