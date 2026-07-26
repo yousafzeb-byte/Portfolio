@@ -1,5 +1,6 @@
 import { getPost, getAllPosts } from "@/lib/posts";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
 export async function generateStaticParams() {
@@ -22,6 +23,26 @@ export default async function BlogPostPage({
       <Navbar />
 
       <main className="max-w-3xl mx-auto px-6 pt-28 pb-16">
+        <Link
+          href="/#blog"
+          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-indigo-600 transition-colors mb-10 group"
+        >
+          <svg
+            className="w-4 h-4 transition-transform group-hover:-translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          Back to Blog
+        </Link>
+
         <div className="flex items-center gap-3 mb-6">
           <span className="px-2.5 py-1 bg-indigo-50 text-indigo-600 text-xs font-semibold rounded-md">
             {post.tag}
