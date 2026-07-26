@@ -62,12 +62,6 @@ export default function Hero() {
             >
               View Projects
             </a>
-            <a
-              href="#contact"
-              className="px-6 py-3 border border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-indigo-400 hover:text-indigo-600 transition-colors"
-            >
-              Contact Me
-            </a>
           </div>
 
           <div className="animate-fade-up-delay-3 mt-16 flex flex-wrap gap-10 sm:gap-16">
