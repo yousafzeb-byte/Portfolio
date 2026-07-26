@@ -1,5 +1,7 @@
 # Yousaf Zeb — Personal Portfolio
 
+**Live:** [yousafzeb.vercel.app](https://yousafzeb.vercel.app)
+
 Personal portfolio website built with Next.js 15, TypeScript, and Tailwind CSS.
 
 ## Stack
