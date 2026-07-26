@@ -3,38 +3,76 @@ import { useEffect } from "react";
 
 export default function RevealObserver() {
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
+            io.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.08 },
     );
 
-    const els = document.querySelectorAll<Element>(".reveal");
+    // Reveal every .reveal element that is already in or above the viewport
+    const revealInView = () => {
+      document
+        .querySelectorAll<Element>(".reveal:not(.visible)")
+        .forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight) {
+            el.classList.add("visible");
+            io.unobserve(el);
+          }
+        });
+    };
 
-    // Normal scroll-reveal for fresh page loads
-    els.forEach((el) => observer.observe(el));
+    const startObserving = (el: Element) => {
+      if (!el.classList.contains("visible")) io.observe(el);
+    };
 
-    // After the browser has applied any hash-based scroll, immediately reveal
-    // everything that is already in or above the viewport (e.g. after back-navigation)
-    const timer = setTimeout(() => {
-      els.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-          el.classList.add("visible");
-          observer.unobserve(el);
-        }
+    // Observe all .reveal elements already in the DOM
+    document.querySelectorAll<Element>(".reveal").forEach(startObserving);
+
+    // Watch for new .reveal elements added during client-side navigation
+    const mo = new MutationObserver((mutations) => {
+      let found = false;
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType !== Node.ELEMENT_NODE) return;
+          const el = node as Element;
+          if (el.classList.contains("reveal")) {
+            startObserving(el);
+            found = true;
+          }
+          el.querySelectorAll<Element>(".reveal").forEach((child) => {
+            startObserving(child);
+            found = true;
+          });
+        });
       });
-    }, 100);
+      // After new elements are added, check once the browser has applied
+      // any hash-based scroll (/#section navigation)
+      if (found) {
+        setTimeout(revealInView, 150);
+        setTimeout(revealInView, 500);
+      }
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    // Also reveal in-view elements when scroll settles (hash scroll fires scroll events)
+    let scrollTimer: ReturnType<typeof setTimeout>;
+    const onScroll = () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(revealInView, 50);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
-      clearTimeout(timer);
-      observer.disconnect();
+      clearTimeout(scrollTimer);
+      window.removeEventListener("scroll", onScroll);
+      io.disconnect();
+      mo.disconnect();
     };
   }, []);
 
