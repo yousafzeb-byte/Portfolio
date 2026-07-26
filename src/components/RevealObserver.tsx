@@ -15,18 +15,27 @@ export default function RevealObserver() {
       { threshold: 0.08 },
     );
 
-    const els = document.querySelectorAll(".reveal");
-    els.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      // Already in or above viewport (e.g. after back navigation) — reveal immediately
-      if (rect.top < window.innerHeight) {
-        el.classList.add("visible");
-      } else {
-        observer.observe(el);
-      }
-    });
+    const els = document.querySelectorAll<Element>(".reveal");
 
-    return () => observer.disconnect();
+    // Normal scroll-reveal for fresh page loads
+    els.forEach((el) => observer.observe(el));
+
+    // After the browser has applied any hash-based scroll, immediately reveal
+    // everything that is already in or above the viewport (e.g. after back-navigation)
+    const timer = setTimeout(() => {
+      els.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add("visible");
+          observer.unobserve(el);
+        }
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, []);
 
   return null;
