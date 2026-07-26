@@ -1,12 +1,9 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
-
-const postsDir = path.join(process.cwd(), "content/posts");
+import { getSupabase } from "./supabase";
 
 export interface PostMeta {
+  id: string;
   slug: string;
   title: string;
   date: string;
@@ -19,40 +16,39 @@ export interface Post extends PostMeta {
   contentHtml: string;
 }
 
-export function getAllPosts(): PostMeta[] {
-  if (!fs.existsSync(postsDir)) return [];
-  const files = fs.readdirSync(postsDir).filter((f) => f.endsWith(".md"));
-  return files
-    .map((fileName) => {
-      const slug = fileName.replace(/\.md$/, "");
-      const fullPath = path.join(postsDir, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data } = matter(fileContents);
-      return {
-        slug,
-        title: data.title as string,
-        date: data.date as string,
-        readTime: data.readTime as string,
-        excerpt: data.excerpt as string,
-        tag: data.tag as string,
-      };
-    })
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
+export async function getAllPosts(): Promise<PostMeta[]> {
+  try {
+    const { data, error } = await getSupabase()
+      .from("posts")
+      .select("id, slug, title, date, read_time, excerpt, tag")
+      .order("created_at", { ascending: false });
+    if (error) return [];
+    return (data ?? []).map((p) => ({ ...p, readTime: p.read_time }));
+  } catch {
+    return [];
+  }
 }
 
 export async function getPost(slug: string): Promise<Post | null> {
-  const fullPath = path.join(postsDir, `${slug}.md`);
-  if (!fs.existsSync(fullPath)) return null;
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-  const processed = await remark().use(html).process(content);
-  return {
-    slug,
-    title: data.title as string,
-    date: data.date as string,
-    readTime: data.readTime as string,
-    excerpt: data.excerpt as string,
-    tag: data.tag as string,
-    contentHtml: processed.toString(),
-  };
+  try {
+    const { data, error } = await getSupabase()
+      .from("posts")
+      .select("*")
+      .eq("slug", slug)
+      .single();
+    if (error || !data) return null;
+    const processed = await remark().use(html).process(data.content);
+    return {
+      id: data.id,
+      slug: data.slug,
+      title: data.title,
+      date: data.date,
+      readTime: data.read_time,
+      excerpt: data.excerpt,
+      tag: data.tag,
+      contentHtml: processed.toString(),
+    };
+  } catch {
+    return null;
+  }
 }

@@ -1,8 +1,8 @@
 import { getAllPosts } from "@/lib/posts";
 import BlogList from "./BlogList";
 
-export default function Blog() {
-  const posts = getAllPosts();
+export default async function Blog() {
+  const posts = await getAllPosts();
 
   return (
     <section id="blog" className="py-24 bg-white">
