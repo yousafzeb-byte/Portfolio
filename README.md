@@ -1,22 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yousaf Zeb — Personal Portfolio
 
-## Getting Started
+Personal portfolio website built with Next.js 15, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Animations:** CSS keyframes + IntersectionObserver (no animation libraries)
+- **Deployment:** Vercel
+
+## Features
+
+- Typewriter effect cycling through roles
+- Floating gradient orbs + dot-grid hero background
+- Scroll-triggered reveal animations on every section
+- Scroll progress bar
+- Responsive navbar with mobile menu + scroll shadow
+- Sections: Hero, About, Skills, Projects, Contact
+
+## Projects Showcased
+
+- [Flow-Pilot](https://github.com/yousafzeb-byte/Flow-Pilot) — AI workflow automation platform
+- [AI Business Assistant](https://github.com/yousafzeb-byte/AI-Business-Assistant) — Full-stack AI business operations app
+- [TripCanvas](https://github.com/yousafzeb-byte/TripCanvas) — Travel itinerary planner
+
+## Running Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contact
+
+- Email: yousafzeb@gmail.com
+- LinkedIn: [linkedin.com/in/yousaf-zeb-5122702a7](https://www.linkedin.com/in/yousaf-zeb-5122702a7)
+- GitHub: [github.com/yousafzeb-byte](https://github.com/yousafzeb-byte)
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
