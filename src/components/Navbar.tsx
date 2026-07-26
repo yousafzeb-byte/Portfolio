@@ -51,7 +51,7 @@ export default function Navbar() {
               href="#contact"
               className="ml-4 px-4 py-2 text-sm font-semibold bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
             >
-              Hire Me
+              Let&apos;s Connect
             </a>
           </li>
         </ul>
@@ -105,7 +105,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
             className="w-fit px-4 py-2 text-sm font-semibold bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
           >
-            Hire Me
+            Let&apos;s Connect
           </a>
         </div>
       )}
