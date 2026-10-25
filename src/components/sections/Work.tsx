@@ -62,12 +62,20 @@ const AI_RECORDS = [
   { name: "Hiring Brief.pdf", category: "HR", status: "pending" },
 ] as const;
 
+const AI_INSIGHTS = [
+  { label: "Revenue", value: "↑ 12% YoY — Q3 target exceeded" },
+  { label: "Top Region", value: "APAC at +24% growth" },
+  { label: "Risk Flag", value: "Clause 7.3 requires legal review" },
+  { label: "Action", value: "Revise pricing strategy before Q4" },
+] as const;
+
 function AIAssistantPreview() {
   return (
     <div
       className="w-full rounded-lg border border-border overflow-hidden bg-[#0D0D0D]"
       aria-label="AI Business Assistant record analysis example"
     >
+      {/* Chrome */}
       <div className="flex items-center px-4 h-8 border-b border-border/50 bg-surface/70 gap-3">
         <span className="font-mono text-[10px] text-muted/70 tracking-wide">
           ai business assistant
@@ -76,6 +84,8 @@ function AIAssistantPreview() {
           ● GPT-4o-mini
         </span>
       </div>
+
+      {/* Records list */}
       <div className="divide-y divide-border/10">
         {AI_RECORDS.map((r) => (
           <div
@@ -98,7 +108,24 @@ function AIAssistantPreview() {
           </div>
         ))}
       </div>
-      <div className="px-4 py-2.5 border-t border-border/20 flex justify-between font-mono text-[10px]">
+
+      {/* AI insight panel */}
+      <div className="px-4 pt-3 pb-3 border-t border-border/30 bg-surface/20">
+        <p className="font-mono text-[10px] text-accent tracking-[0.15em] uppercase mb-2.5">
+          AI Insight — Q3 Sales Report
+        </p>
+        <div className="space-y-2">
+          {AI_INSIGHTS.map((ins) => (
+            <div key={ins.label} className="flex gap-2 font-mono text-[11px]">
+              <span className="text-muted/50 shrink-0 w-20">{ins.label}</span>
+              <span className="text-text/70">{ins.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="px-4 py-2 border-t border-border/20 flex justify-between font-mono text-[10px]">
         <span className="text-muted/55">36 tests · JWT + Redis</span>
         <span className="text-muted/55">Docker · CI/CD</span>
       </div>
