@@ -58,17 +58,14 @@ describe("SectionLabel", () => {
 
 /* ---- Footer ----------------------------------------------------- */
 describe("Footer", () => {
-  it("renders a GitHub link with correct href", () => {
+  it("renders the copyright notice with the author name", () => {
     render(<Footer />);
-    const link = screen.getByRole("link", { name: /source on github/i });
-    expect(link).toHaveAttribute("href", "https://github.com/yousafzeb-byte");
+    expect(screen.getByText(/Yousaf Zeb/)).toBeInTheDocument();
   });
 
-  it("opens GitHub link in a new tab", () => {
+  it("renders the tech stack line", () => {
     render(<Footer />);
-    const link = screen.getByRole("link", { name: /source on github/i });
-    expect(link).toHaveAttribute("target", "_blank");
-    expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    expect(screen.getByText(/React · TypeScript · Tailwind · Framer Motion/)).toBeInTheDocument();
   });
 });
 
@@ -118,18 +115,15 @@ describe("principles data", () => {
 });
 
 /* ---- Footer accessibility --------------------------------------- */
-describe("Footer external link accessibility", () => {
-  it("GitHub link has accessible label", () => {
+describe("Footer accessibility", () => {
+  it("footer landmark is present", () => {
     render(<Footer />);
-    const link = screen.getByRole("link", { name: /github/i });
-    expect(link).toBeInTheDocument();
+    expect(screen.getByRole("contentinfo")).toBeInTheDocument();
   });
 
-  it("GitHub link is keyboard-accessible", async () => {
-    const user = userEvent.setup();
+  it("copyright notice is visible", () => {
     render(<Footer />);
-    await user.tab();
-    const link = screen.getByRole("link", { name: /source on github/i });
-    expect(link).toBeInTheDocument();
+    const year = new Date().getFullYear().toString();
+    expect(screen.getByText(new RegExp(year))).toBeInTheDocument();
   });
 });
