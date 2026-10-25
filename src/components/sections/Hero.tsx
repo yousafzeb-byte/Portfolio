@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex items-center px-6 md:px-10 pt-24 pb-10 max-w-6xl mx-auto"
+      className="relative overflow-hidden flex items-center px-6 md:px-10 pt-24 pb-10 max-w-6xl mx-auto"
       aria-label="Introduction"
     >
       {/* Ambient glow */}
