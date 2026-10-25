@@ -1,0 +1,42 @@
+﻿@import "tailwindcss";
+
+/* --- Design tokens -------------------------------------------- */
+@theme {
+  --color-canvas:  #0A0A0A;
+  --color-surface: #131313;
+  --color-border:  #222222;
+  --color-text:    #EDEBE3;
+  --color-muted:   #5C5A56;
+  --color-accent:  #C8A96E;
+
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono:    "JetBrains Mono", "Consolas", monospace;
+}
+
+/* --- Global resets & base ------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+::selection {
+  background-color: rgba(200, 169, 110, 0.22);
+  color: var(--color-text);
+}
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --- Scrollbar ------------------------------------------------- */
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: var(--color-canvas); }
+::-webkit-scrollbar-thumb  { background: var(--color-border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-muted); }
