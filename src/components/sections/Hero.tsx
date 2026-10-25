@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden flex items-center px-6 md:px-10 pt-24 pb-10 max-w-6xl mx-auto"
+      className="relative flex items-center px-6 md:px-10 pt-24 pb-10 max-w-6xl mx-auto"
       aria-label="Introduction"
     >
       {/* Ambient glow */}
@@ -93,7 +93,7 @@ export function Hero() {
 
         {/* RIGHT — interactive demo */}
         <motion.div
-          className="hidden md:block"
+          className="block min-w-0"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{

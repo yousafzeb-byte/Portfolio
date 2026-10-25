@@ -162,9 +162,9 @@ export function WorkflowDemo() {
           AI Generation Pipeline
         </p>
 
-        {/* Node row */}
+        {/* Node row — scrollable on narrow screens */}
         <div
-          className="flex items-center"
+          className="flex items-center overflow-x-auto pb-1"
           role="list"
           aria-label="Workflow nodes"
         >
