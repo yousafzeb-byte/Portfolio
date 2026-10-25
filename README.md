@@ -6,13 +6,13 @@
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Tests](https://img.shields.io/badge/Tests-13%20passing-22c55e)](https://github.com/yousafzeb-byte/Portfolio)
-[![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)](https://yousafzeb.dev)
+[![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)](https://yousafzeb.vercel.app)
 
 A modern, interactive portfolio showcasing my work in full-stack software engineering, front-end development, and AI-powered applications.
 
 Built with **React, TypeScript, Tailwind CSS, and Framer Motion**, with a focus on thoughtful design, meaningful interactions, performance, and accessibility.
 
-[**Live Portfolio**](https://yousafzeb.dev/) · [**GitHub**](https://github.com/yousafzeb-byte)
+[**Live Portfolio**](https://yousafzeb.vercel.app/) · [**GitHub**](https://github.com/yousafzeb-byte)
 
 ---
 
@@ -219,4 +219,4 @@ Every push to `main` triggers the GitHub Actions pipeline:
 ---
 
 **Author:** Yousaf Zeb — Full-Stack Software Engineer  
-**Live:** [yousafzeb.dev](https://yousafzeb.dev)
+**Live:** [yousafzeb.vercel.app](https://yousafzeb.vercel.app)
