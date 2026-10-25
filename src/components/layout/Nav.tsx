@@ -64,16 +64,16 @@ export function Nav() {
         }`}
       >
         <nav
-          className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between"
+          className="max-w-6xl mx-auto px-6 md:px-10 h-[68px] flex items-center justify-between"
           aria-label="Main navigation"
         >
           {/* Logo / monogram */}
           <a
             href="#"
-            className="font-display text-xl text-text hover:text-accent transition-colors duration-200"
+            className="font-display text-4xl text-text hover:text-accent transition-colors duration-200 leading-none"
             aria-label="Yousaf Zeb — back to top"
           >
-            YZ
+            Y<em style={{ color: "var(--color-accent)" }}>Z</em>
           </a>
 
           {/* Desktop links */}
@@ -82,9 +82,13 @@ export function Nav() {
               <li key={href}>
                 <a
                   href={href}
-                  className="font-sans text-sm text-muted hover:text-text transition-colors duration-200"
+                  className="relative font-sans text-[17px] text-muted hover:text-text transition-colors duration-200 group"
                 >
                   {label}
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-accent group-hover:w-full transition-all duration-200"
+                    aria-hidden="true"
+                  />
                 </a>
               </li>
             ))}
@@ -93,11 +97,11 @@ export function Nav() {
                 href="https://github.com/yousafzeb-byte"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-sans text-sm text-muted hover:text-text transition-colors duration-200"
+                className="inline-flex items-center gap-1 font-sans text-[17px] text-muted hover:text-text transition-colors duration-200"
                 aria-label="GitHub profile (opens in new tab)"
               >
                 GitHub
-                <ArrowUpRight size={13} aria-hidden="true" />
+                <ArrowUpRight size={14} aria-hidden="true" />
               </a>
             </li>
           </ul>

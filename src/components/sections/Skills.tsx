@@ -11,7 +11,7 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="px-6 md:px-10 py-24 md:py-32 max-w-6xl mx-auto"
+      className="px-6 md:px-10 py-10 md:py-12 max-w-6xl mx-auto"
       aria-labelledby="skills-heading"
     >
       <SectionLabel number="03" label="Expertise" />

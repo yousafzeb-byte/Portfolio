@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { makeVariants } from "../../lib/motion";
+import { WorkflowDemo } from "./WorkflowDemo";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -10,111 +11,120 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center px-6 md:px-10 pt-24 pb-20 max-w-6xl mx-auto"
+      className="relative flex items-center px-6 md:px-10 pt-24 pb-10 max-w-6xl mx-auto"
       aria-label="Introduction"
     >
-      {/* Dot-grid texture — decorative */}
+      {/* Ambient glow */}
       <div
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          backgroundImage: `radial-gradient(circle, rgba(200,169,110,0.18) 1px, transparent 1px)`,
-          backgroundSize: "36px 36px",
-          maskImage:
-            "radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 100%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 100%)",
-          opacity: 0.18,
-        }}
-        aria-hidden="true"
-      />
-      {/* Warm ambient glow behind the name — decorative */}
-      <div
-        className="pointer-events-none absolute top-1/4 -left-20 w-[700px] h-[500px] -z-10"
+        className="pointer-events-none absolute top-1/3 -left-32 w-[600px] h-[500px] -z-10"
         style={{
           background:
-            "radial-gradient(ellipse at 30% 50%, rgba(200,169,110,0.055) 0%, transparent 65%)",
+            "radial-gradient(ellipse at 30% 50%, rgba(200,169,110,0.06) 0%, transparent 65%)",
         }}
         aria-hidden="true"
       />
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="visible"
-        className="max-w-4xl"
-      >
-        {/* Availability badge */}
-        <motion.div variants={item} className="flex items-center gap-2.5 mb-8">
-          <span className="relative flex h-2 w-2" aria-hidden="true">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-60" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-          </span>
-          <span className="font-mono text-xs text-muted tracking-[0.2em] uppercase">
-            Available — Open to full-time roles
-          </span>
+      <div className="w-full grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+        {/* LEFT — identity */}
+        <motion.div variants={container} initial="hidden" animate="visible">
+          {/* Availability badge */}
+          <motion.div
+            variants={item}
+            className="flex items-center gap-2.5 mb-8"
+          >
+            <span className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            <span className="font-mono text-xs text-muted tracking-[0.2em] uppercase">
+              Available — Open to full-time roles
+            </span>
+          </motion.div>
+
+          {/* Name */}
+          <motion.h1
+            variants={item}
+            className="font-display leading-[0.88] tracking-tight text-text mb-5"
+            style={{ fontSize: "clamp(3rem, 5.5vw, 6rem)" }}
+          >
+            Yousaf
+            <br />
+            <em style={{ color: "var(--color-accent)", opacity: 0.85 }}>
+              Zeb.
+            </em>
+          </motion.h1>
+
+          {/* Eyebrow */}
+          <motion.p
+            variants={item}
+            className="font-mono text-xs text-muted tracking-[0.22em] uppercase mb-8 border-l-2 border-accent pl-3"
+          >
+            Full-Stack Engineer · MBA
+          </motion.p>
+
+          {/* Bio */}
+          <motion.p
+            variants={item}
+            className="font-sans text-base md:text-[18px] text-muted leading-relaxed max-w-[440px] mb-10"
+          >
+            I build production software at the intersection of engineering and
+            product — AI automation platforms, REST APIs, and full-featured
+            React applications.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div variants={item} className="flex flex-wrap gap-4">
+            <a
+              href="#work"
+              className="inline-flex items-center gap-2 border border-accent text-accent hover:bg-accent hover:text-canvas px-6 py-3 text-sm font-medium tracking-wide transition-all duration-200"
+            >
+              Selected Work
+              <ArrowDown size={14} aria-hidden="true" />
+            </a>
+            <a
+              href="https://github.com/yousafzeb-byte"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-border text-muted hover:border-muted hover:text-text px-6 py-3 text-sm font-medium tracking-wide transition-all duration-200"
+              aria-label="View GitHub profile (opens in new tab)"
+            >
+              GitHub
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
+          </motion.div>
         </motion.div>
 
-        {/* Name — magazine-cover scale */}
-        <motion.h1
-          variants={item}
-          className="font-display leading-[0.88] tracking-tight text-text mb-6"
-          style={{ fontSize: "clamp(4rem, 11vw, 10.5rem)" }}
+        {/* RIGHT — interactive demo */}
+        <motion.div
+          className="hidden md:block"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            delay: reduceMotion ? 0 : 0.4,
+            ease: [0.25, 0, 0, 1],
+          }}
         >
-          Yousaf
-          <br />
-          <em style={{ color: "var(--color-accent)", opacity: 0.85 }}>Zeb.</em>
-        </motion.h1>
-
-        {/* Eyebrow under name */}
-        <motion.p
-          variants={item}
-          className="font-mono text-xs text-muted tracking-[0.22em] uppercase mb-8 border-l-2 border-accent pl-3"
-        >
-          Full-Stack Engineer · MBA
-        </motion.p>
-
-        {/* Bio */}
-        <motion.p
-          variants={item}
-          className="font-sans text-base md:text-lg text-muted leading-relaxed max-w-[480px] mb-10"
-        >
-          I build production software at the intersection of engineering and
-          product — AI automation platforms, REST APIs, and full-featured React
-          applications.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div variants={item} className="flex flex-wrap gap-4">
-          <a
-            href="#work"
-            className="inline-flex items-center gap-2 border border-accent text-accent hover:bg-accent hover:text-canvas px-6 py-3 text-sm font-medium tracking-wide transition-all duration-200"
-          >
-            Selected Work
-            <ArrowDown size={14} aria-hidden="true" />
-          </a>
-          <a
-            href="https://github.com/yousafzeb-byte"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-border text-muted hover:border-muted hover:text-text px-6 py-3 text-sm font-medium tracking-wide transition-all duration-200"
-            aria-label="View GitHub profile (opens in new tab)"
-          >
-            GitHub
-            <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
+          <p className="font-mono text-[11px] text-muted/40 tracking-[0.18em] uppercase mb-3">
+            Live demo — Flow-Pilot
+          </p>
+          <WorkflowDemo />
+          <p className="mt-3 font-mono text-[10px] text-muted/30 tracking-wide">
+            Click any node to inspect · Click Run to execute the pipeline
+          </p>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-6 md:left-10 flex items-center gap-3"
+        className="absolute bottom-4 left-6 md:left-10 flex items-center gap-3"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: reduceMotion ? 0 : 1.4, duration: 0.6 }}
+        transition={{ delay: reduceMotion ? 0 : 1.6, duration: 0.5 }}
         aria-hidden="true"
       >
-        <div className="w-px h-10 bg-border" />
-        <span className="font-mono text-xs text-muted tracking-[0.2em] uppercase">
+        <div className="w-px h-8 bg-border" />
+        <span className="font-mono text-[10px] text-muted/40 tracking-[0.2em] uppercase">
           Scroll
         </span>
       </motion.div>

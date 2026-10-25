@@ -28,7 +28,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="px-6 md:px-10 py-24 md:py-32 max-w-6xl mx-auto"
+      className="px-6 md:px-10 py-10 md:py-14 max-w-6xl mx-auto"
       aria-labelledby="about-heading"
     >
       <SectionLabel number="02" label="About" />
@@ -38,13 +38,13 @@ export function About() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="grid md:grid-cols-5 gap-14 md:gap-20"
+        className="grid md:grid-cols-5 gap-8 md:gap-12"
       >
         {/* Bio */}
         <motion.div variants={item} className="md:col-span-3">
           <h2
             id="about-heading"
-            className="font-display text-4xl md:text-5xl text-text mb-8 leading-[1.1]"
+            className="font-display text-4xl md:text-5xl text-text mb-6 leading-[1.1]"
           >
             Engineering with
             <br />

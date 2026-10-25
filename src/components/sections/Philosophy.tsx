@@ -11,7 +11,7 @@ export function Philosophy() {
   return (
     <section
       id="philosophy"
-      className="px-6 md:px-10 py-24 md:py-32 max-w-6xl mx-auto"
+      className="px-6 md:px-10 py-10 md:py-14 max-w-6xl mx-auto"
       aria-labelledby="philosophy-heading"
     >
       <SectionLabel number="04" label="How I Build" />
@@ -25,7 +25,7 @@ export function Philosophy() {
         <motion.h2
           variants={item}
           id="philosophy-heading"
-          className="font-display text-4xl md:text-5xl text-text mb-14 leading-[1.1] max-w-xl"
+          className="font-display text-4xl md:text-5xl text-text mb-10 leading-[1.1] max-w-xl"
         >
           Principles I don't
           <br />

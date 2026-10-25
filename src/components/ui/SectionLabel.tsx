@@ -10,7 +10,7 @@ export function SectionLabel({
   className = "",
 }: SectionLabelProps) {
   return (
-    <div className={`flex items-center gap-3 mb-14 ${className}`}>
+    <div className={`flex items-center gap-3 mb-6 ${className}`}>
       <span className="font-mono text-xs text-accent tracking-[0.2em]">
         {number}
       </span>

@@ -11,7 +11,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="px-6 md:px-10 py-24 md:py-40 max-w-6xl mx-auto"
+      className="px-6 md:px-10 py-10 md:py-14 max-w-6xl mx-auto"
       aria-labelledby="contact-heading"
     >
       <SectionLabel number="05" label="Contact" />
