@@ -94,6 +94,18 @@ export function Nav() {
             ))}
             <li>
               <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-sans text-[17px] text-muted hover:text-text transition-colors duration-200"
+                aria-label="View résumé PDF (opens in new tab)"
+              >
+                Résumé
+                <ArrowUpRight size={14} aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://github.com/yousafzeb-byte"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -157,6 +169,19 @@ export function Nav() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMenu}
+                  className="inline-flex items-center gap-3 font-display text-5xl text-text hover:text-accent transition-colors duration-200"
+                  aria-label="View résumé PDF (opens in new tab)"
+                >
+                  Résumé
+                  <ArrowUpRight size={28} aria-hidden="true" />
+                </a>
+              </li>
               <li>
                 <a
                   href="https://github.com/yousafzeb-byte"

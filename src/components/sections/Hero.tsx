@@ -82,13 +82,10 @@ export function Hero() {
               <ArrowDown size={14} aria-hidden="true" />
             </a>
             <a
-              href="https://github.com/yousafzeb-byte"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               className="inline-flex items-center gap-2 border border-border text-muted hover:border-muted hover:text-text px-6 py-3 text-sm font-medium tracking-wide transition-all duration-200"
-              aria-label="View GitHub profile (opens in new tab)"
             >
-              GitHub
+              Get in Touch
               <ArrowUpRight size={14} aria-hidden="true" />
             </a>
           </motion.div>

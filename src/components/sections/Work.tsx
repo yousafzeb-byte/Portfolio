@@ -29,7 +29,7 @@ function FlowPilotLog() {
           <span className="block w-2 h-2 rounded-full bg-[#ffbd2e]" />
           <span className="block w-2 h-2 rounded-full bg-[#27c93f]" />
         </div>
-        <span className="flex-1 text-center font-mono text-[10px] text-muted/50 tracking-wide">
+        <span className="flex-1 text-center font-mono text-[10px] text-muted/70 tracking-wide">
           execution log
         </span>
         <span className="font-mono text-[10px] text-accent">● Complete</span>
@@ -37,17 +37,17 @@ function FlowPilotLog() {
       <div className="p-4 space-y-1.5 font-mono text-[11px]" role="log">
         {LOG_ENTRIES.map((e, i) => (
           <div key={i} className="flex gap-3">
-            <span className="text-muted/30 shrink-0">[{e.t}]</span>
-            <span className={e.ok ? "text-accent" : "text-muted/40"}>
+            <span className="text-muted/55 shrink-0">[{e.t}]</span>
+            <span className={e.ok ? "text-accent" : "text-muted/65"}>
               {e.ok ? "✓" : "→"}
             </span>
-            <span className={e.ok ? "text-text/60" : "text-muted/40"}>
+            <span className={e.ok ? "text-text/80" : "text-muted/65"}>
               {e.msg}
             </span>
           </div>
         ))}
         <div className="mt-3 pt-3 border-t border-border/20 flex justify-between">
-          <span className="text-muted/30">Duration: 1842ms</span>
+          <span className="text-muted/55">Duration: 1842ms</span>
           <span className="text-accent">● 4/4 nodes complete</span>
         </div>
       </div>
@@ -80,10 +80,10 @@ function ApiPreview() {
       aria-label="Mechanic Shop API endpoint list example"
     >
       <div className="flex items-center px-4 h-8 border-b border-border/50 bg-surface/70 gap-3">
-        <span className="font-mono text-[10px] text-muted/50 tracking-wide">
+        <span className="font-mono text-[10px] text-muted/70 tracking-wide">
           swagger — mechanic shop api
         </span>
-        <span className="ml-auto font-mono text-[10px] text-muted/30">
+        <span className="ml-auto font-mono text-[10px] text-muted/55">
           27 endpoints
         </span>
       </div>
@@ -98,15 +98,15 @@ function ApiPreview() {
             >
               {ep.method}
             </span>
-            <span className="font-mono text-[11px] text-text/50 truncate">
+            <span className="font-mono text-[11px] text-text/75 truncate">
               {ep.path}
             </span>
-            <span className="ml-auto font-mono text-[10px] text-muted/30 shrink-0">
+            <span className="ml-auto font-mono text-[10px] text-muted/55 shrink-0">
               {ep.s}
             </span>
           </div>
         ))}
-        <div className="px-4 py-2.5 font-mono text-[10px] text-muted/25 text-right">
+        <div className="px-4 py-2.5 font-mono text-[10px] text-muted/55 text-right">
           +20 more →
         </div>
       </div>
@@ -129,16 +129,16 @@ function ProductPreview() {
       aria-label="Advanced E-Commerce UI preview"
     >
       <div className="flex items-center gap-3 px-4 h-9 border-b border-border/50 bg-surface/70">
-        <span className="font-mono text-[10px] text-muted/50">Products</span>
+        <span className="font-mono text-[10px] text-muted/70">Products</span>
         {(["All", "Electronics", "Accessories"] as const).map((f, i) => (
           <span
             key={f}
-            className={`font-mono text-[10px] px-2 py-0.5 rounded-sm ${i === 0 ? "bg-accent/15 text-accent" : "text-muted/30"}`}
+            className={`font-mono text-[10px] px-2 py-0.5 rounded-sm ${i === 0 ? "bg-accent/15 text-accent" : "text-muted/55"}`}
           >
             {f}
           </span>
         ))}
-        <span className="ml-auto font-mono text-[10px] text-muted/25">
+        <span className="ml-auto font-mono text-[10px] text-muted/55">
           4 items
         </span>
       </div>
@@ -154,7 +154,7 @@ function ProductPreview() {
             >
               <div className="w-10 h-10 bg-border/20 rounded-sm" />
             </div>
-            <p className="font-sans text-[11px] text-text/60 mb-1 leading-tight">
+            <p className="font-sans text-[11px] text-text/80 mb-1 leading-tight">
               {p.name}
             </p>
             <p className="font-mono text-sm text-accent">{p.price}</p>
@@ -249,7 +249,7 @@ export function Work() {
                 >
                   {project.title}
                 </h3>
-                <p className="font-mono text-xs text-muted/60 tracking-[0.15em] uppercase mb-5">
+                <p className="font-mono text-xs text-muted/80 tracking-[0.15em] uppercase mb-5">
                   {project.tagline}
                 </p>
                 <p className="font-sans text-sm md:text-[15px] text-muted leading-relaxed mb-6">
@@ -262,7 +262,7 @@ export function Work() {
                   {project.highlights.map((h) => (
                     <li
                       key={h}
-                      className="flex items-start gap-2.5 font-sans text-sm text-muted/70"
+                      className="flex items-start gap-2.5 font-sans text-sm text-muted"
                     >
                       <span
                         className="mt-[0.45rem] h-1 w-1 rounded-full bg-accent/50 shrink-0"
@@ -279,7 +279,7 @@ export function Work() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="font-mono text-xs text-muted/60 border border-border/50 px-2 py-0.5"
+                      className="font-mono text-xs text-muted/80 border border-border/50 px-2 py-0.5"
                     >
                       {t}
                     </span>
@@ -289,7 +289,7 @@ export function Work() {
 
               {/* Right: visual */}
               <div className="p-6 md:p-8 bg-surface/10 flex flex-col justify-center">
-                <p className="font-mono text-[10px] text-muted/30 uppercase tracking-[0.18em] mb-3">
+                <p className="font-mono text-[10px] text-muted/55 uppercase tracking-[0.18em] mb-3">
                   {index === 0
                     ? "Execution log"
                     : index === 1

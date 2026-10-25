@@ -134,7 +134,7 @@ export function WorkflowDemo() {
           <span className="block w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
           <span className="block w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
         </div>
-        <span className="flex-1 text-center font-mono text-[11px] text-muted/60 tracking-wide">
+        <span className="flex-1 text-center font-mono text-[11px] text-muted/80 tracking-wide">
           flow-pilot — workflow editor
         </span>
         <span
@@ -143,7 +143,7 @@ export function WorkflowDemo() {
               ? "text-accent"
               : status === "running"
                 ? "text-[#ffbd2e]"
-                : "text-muted/30"
+                : "text-muted/50"
           }`}
           aria-live="polite"
           aria-atomic="true"
@@ -158,7 +158,7 @@ export function WorkflowDemo() {
 
       {/* Canvas */}
       <div className="px-5 py-7">
-        <p className="font-mono text-[10px] text-muted/30 uppercase tracking-[0.18em] mb-5">
+        <p className="font-mono text-[10px] text-muted/80 uppercase tracking-[0.18em] mb-5">
           AI Generation Pipeline
         </p>
 
@@ -209,7 +209,7 @@ export function WorkflowDemo() {
                           ? "border-accent/50 bg-accent/5 text-text"
                           : isSelected
                             ? "border-border text-muted bg-surface"
-                            : "border-border/30 bg-surface/50 text-muted/40 hover:border-border/60 hover:text-muted/70"
+                            : "border-border/40 bg-surface/50 text-muted/80 hover:border-border hover:text-muted"
                     }`}
                     onClick={() => setSelected(isSelected ? null : node.id)}
                     aria-label={`${node.label}: ${node.sub}. Click to ${isSelected ? "hide" : "view"} details.`}
@@ -224,12 +224,12 @@ export function WorkflowDemo() {
                         ? "text-accent"
                         : isActive
                           ? "text-text"
-                          : "text-muted/50"
+                          : "text-muted"
                     }`}
                   >
                     {node.label}
                   </p>
-                  <p className="mt-0.5 font-mono text-[9px] text-muted/30 text-center leading-none">
+                  <p className="mt-0.5 font-mono text-[10px] text-muted/80 text-center leading-none">
                     {node.sub}
                   </p>
                 </div>
@@ -282,17 +282,17 @@ export function WorkflowDemo() {
                 <div>
                   <p className="font-mono text-[11px] text-accent tracking-[0.15em] uppercase mb-1.5">
                     {selectedNode.label}
-                    <span className="text-muted/40 ml-2 normal-case tracking-normal">
+                    <span className="text-muted/70 ml-2 normal-case tracking-normal">
                       · {selectedNode.sub}
                     </span>
                   </p>
-                  <p className="font-sans text-xs text-muted/70 leading-relaxed max-w-xs">
+                  <p className="font-sans text-xs text-muted leading-relaxed max-w-xs">
                     {selectedNode.detail}
                   </p>
                 </div>
                 <button
                   onClick={() => setSelected(null)}
-                  className="text-muted/30 hover:text-text transition-colors text-sm leading-none shrink-0"
+                  className="text-muted/50 hover:text-text transition-colors text-sm leading-none shrink-0"
                   aria-label="Close node detail"
                 >
                   ✕
@@ -306,7 +306,7 @@ export function WorkflowDemo() {
       {/* Controls */}
       <div className="flex items-center justify-between px-4 py-3 border-t border-border/40 bg-surface/20">
         <p
-          className="font-mono text-[11px] text-muted/40 truncate"
+          className="font-mono text-[11px] text-muted/80 truncate"
           aria-live="polite"
         >
           {status === "running" && active
@@ -319,7 +319,7 @@ export function WorkflowDemo() {
           {status !== "idle" && (
             <button
               onClick={reset}
-              className="inline-flex items-center gap-1 font-mono text-[11px] text-muted/50 hover:text-text border border-border/30 hover:border-border/60 px-2.5 py-1.5 rounded-md transition-all duration-150"
+              className="inline-flex items-center gap-1 font-mono text-[11px] text-muted hover:text-text border border-border/50 hover:border-border px-2.5 py-1.5 rounded-md transition-all duration-150"
               aria-label="Reset workflow"
             >
               <RotateCcw size={10} aria-hidden="true" />
@@ -331,7 +331,7 @@ export function WorkflowDemo() {
             disabled={status === "running"}
             className={`inline-flex items-center gap-1 font-mono text-[11px] border px-2.5 py-1.5 rounded-md transition-all duration-150 ${
               status === "running"
-                ? "border-border/20 text-muted/20 cursor-not-allowed"
+                ? "border-border/30 text-muted/60 cursor-not-allowed"
                 : "border-accent text-accent hover:bg-accent hover:text-canvas"
             }`}
             aria-label={
