@@ -44,21 +44,30 @@ export function Contact() {
         </motion.p>
 
         <motion.div variants={item} className="flex flex-wrap gap-4">
-          {/* TODO: Replace href with your actual email address */}
           <a
-            href="mailto:hello@yousafzeb.dev"
+            href="mailto:yousafzeb@gmail.com"
             className="inline-flex items-center gap-2 border border-accent text-accent hover:bg-accent hover:text-canvas px-6 py-3 text-sm font-medium tracking-wide transition-all duration-200"
-            aria-label="Send an email"
+            aria-label="Send an email to yousafzeb@gmail.com"
           >
             <Mail size={14} aria-hidden="true" />
-            Send an Email
+            Say Hello
+          </a>
+          <a
+            href="https://www.linkedin.com/in/yousaf-zeb-5122702a7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-border text-muted hover:border-muted hover:text-text px-6 py-3 text-sm font-medium tracking-wide transition-all duration-200"
+            aria-label="LinkedIn profile (opens in new tab)"
+          >
+            <ExternalLink size={14} aria-hidden="true" />
+            LinkedIn
           </a>
           <a
             href="https://github.com/yousafzeb-byte"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-border text-muted hover:border-muted hover:text-text px-6 py-3 text-sm font-medium tracking-wide transition-all duration-200"
-            aria-label="View GitHub profile (opens in new tab)"
+            aria-label="GitHub profile (opens in new tab)"
           >
             <ExternalLink size={14} aria-hidden="true" />
             GitHub

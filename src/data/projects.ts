@@ -2,7 +2,6 @@ import type { ComponentType } from "react";
 import type { Project, SkillGroup } from "../types";
 import { Users, Layers, Shield, Zap, Eye, Cpu } from "lucide-react";
 
-// TODO: Replace repoUrl values with the actual repository URLs once confirmed.
 export const projects: Project[] = [
   {
     id: "flow-pilot",
@@ -27,7 +26,7 @@ export const projects: Project[] = [
       "OpenAI API",
       "JWT",
     ],
-    repoUrl: "https://github.com/yousafzeb-byte",
+    repoUrl: "https://github.com/yousafzeb-byte/Flow-Pilot",
   },
   {
     id: "mechanic-shop-api",
@@ -52,7 +51,7 @@ export const projects: Project[] = [
       "Docker",
       "GitHub Actions",
     ],
-    repoUrl: "https://github.com/yousafzeb-byte",
+    repoUrl: "https://github.com/yousafzeb-byte/Mechanic-Shop",
   },
   {
     id: "advanced-ecommerce",
@@ -76,7 +75,7 @@ export const projects: Project[] = [
       "Firebase",
       "Tailwind CSS",
     ],
-    repoUrl: "https://github.com/yousafzeb-byte",
+    repoUrl: "https://github.com/yousafzeb-byte/advanced-ecommerce-app",
   },
 ];
 

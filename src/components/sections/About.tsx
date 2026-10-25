@@ -10,6 +10,11 @@ const highlights: Highlight[] = [
   { label: "Speciality", value: "React · FastAPI · AI Integrations" },
   { label: "Approach", value: "User-focused, test-driven, production-ready" },
   {
+    label: "LinkedIn",
+    value: "yousaf-zeb",
+    href: "https://www.linkedin.com/in/yousaf-zeb-5122702a7",
+  },
+  {
     label: "GitHub",
     value: "yousafzeb-byte",
     href: "https://github.com/yousafzeb-byte",
