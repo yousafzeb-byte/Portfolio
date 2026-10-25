@@ -55,60 +55,52 @@ function FlowPilotLog() {
   );
 }
 
-/* ── Mechanic Shop API: endpoint list preview ───────────────────── */
-const ENDPOINTS = [
-  { method: "GET", path: "/api/customers", s: 200 },
-  { method: "POST", path: "/api/customers", s: 201 },
-  { method: "GET", path: "/api/vehicles/{id}", s: 200 },
-  { method: "POST", path: "/api/services", s: 201 },
-  { method: "DELETE", path: "/api/services/{id}", s: 204 },
-  { method: "PATCH", path: "/api/customers/{id}", s: 200 },
-  { method: "GET", path: "/api/mechanics", s: 200 },
+/* ── AI Business Assistant: analysis result preview ─────────────── */
+const AI_RECORDS = [
+  { name: "Q3 Sales Report.pdf", category: "Finance", status: "analysed" },
+  { name: "Vendor Contract.docx", category: "Legal", status: "analysed" },
+  { name: "Hiring Brief.pdf", category: "HR", status: "pending" },
 ] as const;
 
-const M: Record<string, string> = {
-  GET: "text-blue-400",
-  POST: "text-green-400",
-  DELETE: "text-red-400",
-  PATCH: "text-yellow-400",
-};
-
-function ApiPreview() {
+function AIAssistantPreview() {
   return (
     <div
       className="w-full rounded-lg border border-border overflow-hidden bg-[#0D0D0D]"
-      aria-label="Mechanic Shop API endpoint list example"
+      aria-label="AI Business Assistant record analysis example"
     >
       <div className="flex items-center px-4 h-8 border-b border-border/50 bg-surface/70 gap-3">
         <span className="font-mono text-[10px] text-muted/70 tracking-wide">
-          swagger — mechanic shop api
+          ai business assistant
         </span>
-        <span className="ml-auto font-mono text-[10px] text-muted/55">
-          27 endpoints
+        <span className="ml-auto font-mono text-[10px] text-accent">
+          ● GPT-4o-mini
         </span>
       </div>
       <div className="divide-y divide-border/10">
-        {ENDPOINTS.map((ep) => (
+        {AI_RECORDS.map((r) => (
           <div
-            key={ep.method + ep.path}
-            className="flex items-center gap-3 px-4 py-2 hover:bg-surface/20 transition-colors"
+            key={r.name}
+            className="flex items-center gap-3 px-4 py-2.5 hover:bg-surface/20 transition-colors"
           >
+            <div className="flex-1 min-w-0">
+              <p className="font-mono text-[11px] text-text/75 truncate">{r.name}</p>
+              <p className="font-mono text-[10px] text-muted/55">{r.category}</p>
+            </div>
             <span
-              className={`font-mono text-[10px] w-12 shrink-0 ${M[ep.method]}`}
+              className={`font-mono text-[10px] shrink-0 px-2 py-0.5 rounded-sm ${
+                r.status === "analysed"
+                  ? "text-accent bg-accent/10"
+                  : "text-muted/55 bg-surface/60"
+              }`}
             >
-              {ep.method}
-            </span>
-            <span className="font-mono text-[11px] text-text/75 truncate">
-              {ep.path}
-            </span>
-            <span className="ml-auto font-mono text-[10px] text-muted/55 shrink-0">
-              {ep.s}
+              {r.status === "analysed" ? "✓ Analysed" : "⋯ Pending"}
             </span>
           </div>
         ))}
-        <div className="px-4 py-2.5 font-mono text-[10px] text-muted/55 text-right">
-          +20 more →
-        </div>
+      </div>
+      <div className="px-4 py-2.5 border-t border-border/20 flex justify-between font-mono text-[10px]">
+        <span className="text-muted/55">36 tests · JWT + Redis</span>
+        <span className="text-muted/55">Docker · CI/CD</span>
       </div>
     </div>
   );
@@ -181,7 +173,7 @@ function ProductPreview() {
 /* ── Visuals map ────────────────────────────────────────────────── */
 const VISUALS: Record<string, React.ReactNode> = {
   "flow-pilot": <FlowPilotLog />,
-  "mechanic-shop-api": <ApiPreview />,
+  "ai-business-assistant": <AIAssistantPreview />,
   "advanced-ecommerce": <ProductPreview />,
 };
 
@@ -293,7 +285,7 @@ export function Work() {
                   {index === 0
                     ? "Execution log"
                     : index === 1
-                      ? "API reference"
+                      ? "AI analysis"
                       : "UI preview"}
                 </p>
                 {VISUALS[project.id]}

@@ -79,7 +79,7 @@ export function About() {
             {(
               [
                 { value: "5+", label: "Projects Shipped" },
-                { value: "130+", label: "Automated Tests" },
+                { value: "50+", label: "Automated Tests" },
                 { value: "MBA", label: "Marketing Degree" },
               ] as const
             ).map(({ value, label }) => (
