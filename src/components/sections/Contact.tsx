@@ -45,9 +45,11 @@ export function Contact() {
 
         <motion.div variants={item} className="flex flex-wrap gap-4">
           <a
-            href="mailto:yousafzeb@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&to=yousafzeb@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-accent text-accent hover:bg-accent hover:text-canvas px-6 py-3 text-sm font-medium tracking-wide transition-all duration-200"
-            aria-label="Send an email to yousafzeb@gmail.com"
+            aria-label="Compose email in Gmail (opens in new tab)"
           >
             <Mail size={14} aria-hidden="true" />
             Say Hello

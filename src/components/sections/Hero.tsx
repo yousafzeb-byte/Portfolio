@@ -114,20 +114,7 @@ export function Hero() {
           </p>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-4 left-6 md:left-10 flex items-center gap-3"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: reduceMotion ? 0 : 1.6, duration: 0.5 }}
-        aria-hidden="true"
-      >
-        <div className="w-px h-8 bg-border" />
-        <span className="font-mono text-[10px] text-muted/40 tracking-[0.2em] uppercase">
-          Scroll
-        </span>
-      </motion.div>
+    </section>
     </section>
   );
 }
