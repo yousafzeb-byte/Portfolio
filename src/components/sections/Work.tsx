@@ -9,9 +9,11 @@ import type { Project } from "../../types";
 function ProjectCard({
   project,
   reduceMotion,
+  featured = false,
 }: {
   project: Project;
   reduceMotion: boolean;
+  featured?: boolean;
 }) {
   return (
     <article
@@ -26,8 +28,8 @@ function ProjectCard({
 
       <div className="flex items-start justify-between gap-6">
         <div className="flex-1 min-w-0">
-          {/* Number + title */}
-          <div className="flex items-baseline gap-4 mb-1">
+          {/* Number + title + optional featured badge */}
+          <div className="flex items-baseline gap-4 mb-1 flex-wrap">
             <span
               className="font-mono text-xs text-accent/40 tracking-[0.2em] shrink-0"
               aria-hidden="true"
@@ -40,6 +42,11 @@ function ProjectCard({
             >
               {project.title}
             </h3>
+            {featured && (
+              <span className="font-mono text-[10px] text-accent border border-accent/40 px-2 py-0.5 tracking-[0.18em] uppercase self-center">
+                Featured
+              </span>
+            )}
           </div>
 
           {/* Tagline */}
@@ -130,9 +137,13 @@ export function Work() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.05 }}
       >
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <motion.div key={project.id} variants={item}>
-            <ProjectCard project={project} reduceMotion={reduceMotion} />
+            <ProjectCard
+              project={project}
+              reduceMotion={reduceMotion}
+              featured={index === 0}
+            />
           </motion.div>
         ))}
         <div className="border-t border-border" aria-hidden="true" />

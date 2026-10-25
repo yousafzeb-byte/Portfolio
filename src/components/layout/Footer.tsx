@@ -4,15 +4,26 @@ export function Footer() {
       <p className="font-mono text-xs text-muted">
         © {new Date().getFullYear()} Yousaf Zeb. Designed &amp; built by hand.
       </p>
-      <a
-        href="https://github.com/yousafzeb-byte"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-mono text-xs text-muted hover:text-accent transition-colors duration-200"
-        aria-label="View source on GitHub (opens in new tab)"
-      >
-        Source on GitHub →
-      </a>
+      <div className="flex items-center gap-6">
+        <a
+          href="https://www.linkedin.com/in/yousaf-zeb-5122702a7"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-xs text-muted hover:text-accent transition-colors duration-200"
+          aria-label="LinkedIn profile (opens in new tab)"
+        >
+          LinkedIn →
+        </a>
+        <a
+          href="https://github.com/yousafzeb-byte"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-xs text-muted hover:text-accent transition-colors duration-200"
+          aria-label="View source on GitHub (opens in new tab)"
+        >
+          GitHub →
+        </a>
+      </div>
     </footer>
   );
 }

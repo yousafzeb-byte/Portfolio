@@ -73,6 +73,26 @@ export function About() {
               demands it.
             </p>
           </div>
+
+          {/* Verified stats from shipped projects */}
+          <dl className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-border">
+            {(
+              [
+                { value: "5+", label: "Projects Shipped" },
+                { value: "130+", label: "Automated Tests" },
+                { value: "MBA", label: "Marketing Degree" },
+              ] as const
+            ).map(({ value, label }) => (
+              <div key={label}>
+                <dt className="font-display text-3xl md:text-4xl text-text leading-none mb-1">
+                  {value}
+                </dt>
+                <dd className="font-mono text-xs text-muted tracking-[0.15em] uppercase">
+                  {label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </motion.div>
 
         {/* Highlights sidebar */}

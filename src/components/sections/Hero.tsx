@@ -13,7 +13,7 @@ export function Hero() {
       className="relative min-h-screen flex flex-col justify-center px-6 md:px-10 pt-24 pb-20 max-w-6xl mx-auto"
       aria-label="Introduction"
     >
-      {/* Subtle dot-grid texture — purely decorative */}
+      {/* Dot-grid texture — decorative */}
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
@@ -27,6 +27,15 @@ export function Hero() {
         }}
         aria-hidden="true"
       />
+      {/* Warm ambient glow behind the name — decorative */}
+      <div
+        className="pointer-events-none absolute top-1/4 -left-20 w-[700px] h-[500px] -z-10"
+        style={{
+          background:
+            "radial-gradient(ellipse at 30% 50%, rgba(200,169,110,0.055) 0%, transparent 65%)",
+        }}
+        aria-hidden="true"
+      />
 
       <motion.div
         variants={container}
@@ -34,24 +43,35 @@ export function Hero() {
         animate="visible"
         className="max-w-4xl"
       >
-        {/* Eyebrow */}
-        <motion.p
-          variants={item}
-          className="font-mono text-xs text-accent tracking-[0.25em] uppercase mb-8"
-        >
-          Full-Stack Engineer · MBA
-        </motion.p>
+        {/* Availability badge */}
+        <motion.div variants={item} className="flex items-center gap-2.5 mb-8">
+          <span className="relative flex h-2 w-2" aria-hidden="true">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+          </span>
+          <span className="font-mono text-xs text-muted tracking-[0.2em] uppercase">
+            Available — Open to full-time roles
+          </span>
+        </motion.div>
 
         {/* Name — magazine-cover scale */}
         <motion.h1
           variants={item}
-          className="font-display leading-[0.88] tracking-tight text-text mb-10"
+          className="font-display leading-[0.88] tracking-tight text-text mb-6"
           style={{ fontSize: "clamp(4rem, 11vw, 10.5rem)" }}
         >
           Yousaf
           <br />
           <em style={{ color: "var(--color-accent)", opacity: 0.85 }}>Zeb.</em>
         </motion.h1>
+
+        {/* Eyebrow under name */}
+        <motion.p
+          variants={item}
+          className="font-mono text-xs text-muted tracking-[0.22em] uppercase mb-8 border-l-2 border-accent pl-3"
+        >
+          Full-Stack Engineer · MBA
+        </motion.p>
 
         {/* Bio */}
         <motion.p
