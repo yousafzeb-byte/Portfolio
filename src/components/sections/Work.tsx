@@ -212,7 +212,7 @@ export function Work() {
           <motion.article
             key={project.id}
             variants={item}
-            className="border border-border hover:border-border/80 transition-colors duration-300 overflow-hidden"
+            className="w-full border border-border hover:border-border/80 transition-colors duration-300 overflow-hidden"
             aria-labelledby={`project-${project.id}-title`}
           >
             {/* Card header */}
@@ -242,7 +242,7 @@ export function Work() {
             {/* Card body */}
             <div className="grid md:grid-cols-2 gap-0">
               {/* Left: text */}
-              <div className="p-6 md:p-8 border-r border-border/40">
+              <div className="min-w-0 p-6 md:p-8 md:border-r border-border/40">
                 <h3
                   id={`project-${project.id}-title`}
                   className="font-display text-3xl md:text-[2.2rem] text-text leading-tight mb-2"
@@ -288,7 +288,7 @@ export function Work() {
               </div>
 
               {/* Right: visual */}
-              <div className="p-6 md:p-8 bg-surface/10 flex flex-col justify-center">
+              <div className="min-w-0 p-6 md:p-8 bg-surface/10 flex flex-col justify-center">
                 <p className="font-mono text-[10px] text-muted/55 uppercase tracking-[0.18em] mb-3">
                   {index === 0
                     ? "Execution log"
